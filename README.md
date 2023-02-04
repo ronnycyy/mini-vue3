@@ -3,14 +3,14 @@
 笔者最近工作用到`vue3`，本着`将技术吃透`的理念，笔者买了很多 `vue` 相关的书籍来阅读，也去读了 `vue3` 的源码。但是最后发现一个问题：整个过程只是在`被动学习`，没有`主动地知识输出`，这样学习的效果是比较差的，知识很容易遗忘。
 
 
-一次偶然的机会，笔者在 `B站` 遇到了 [阿崔cxr](https://github.com/cuixiaorui)，了解了他的 `mini-vue3` 课程后，大为触动。课程介绍里的`「学习vue3源码的最好方式就是自己实现一次」`这句话说得太对了，于是笔者购买了他的课程，沉淀了每一集的内容，经过独立思考后输出了一个自己的 [mini-vue3](https://github.com/ronnycyy/mini-vue3) 库，并将实现过程`输出`成`心得`记录下来，收录到自己的掘金专栏 [Vue3 核心原理与应用实践](https://juejin.cn/column/7183261591398268988)中。
+一次偶然的机会，笔者在 `B站` 遇到了 [阿崔cxr](https://github.com/cuixiaorui)，了解了他的 `mini-vue3` 课程后，大为触动。课程介绍里的`「学习vue3源码的最好方式就是自己实现一次」`这句话说得太对了，于是笔者购买了他的课程，沉淀了每一集的内容，经过独立思考后输出了一个自己的 [mini-vue3](https://github.com/ronnycyy/mini-vue3) 库，并将实现过程`输出`成`心得`记录下来，收录到了自己的掘金专栏 ---- [Vue3 核心原理与应用实践](https://juejin.cn/column/7183261591398268988)中。
 
-这样的学习过程有了大量的`自我思考`，知识会更加牢固。
+这样的学习过程就有了大量的`自我思考`，学习效果会好很多。
 
 另一个好处是，当不可避免地出现`知识遗忘`的时候，有这个`专栏/项目`提供`复习资料`，读一遍`专栏文章`，看一看`项目代码`，就能回想起自己的`心路历程`，这有利于建立`长期记忆`。
 
 
-# 开发须知
+# commit message 规范
 
 本项目提交的 `commit message` 需满足 `Angular` 的 `Commit message` 格式，这样更利于维护项目。
 
@@ -19,13 +19,13 @@
 这需要安装 `Commitizen` 这个库，`Commitizen` 是一个撰写合格 `Commit message` 的工具。
 
 
-#### 安装
+## 安装
 
 ```shell
 npm install -g commitizen
 ```
 
-#### 启动
+## 启动
 
 通过下面的命令使项目支持 `Angular` 的 `Commit message` 格式。
 
@@ -33,10 +33,34 @@ npm install -g commitizen
 commitizen init cz-conventional-changelog --yarn --dev --exact
 ```
 
-#### 用法
-
 接下来，提交时要用 `git cz` 替换掉 `git commit`，执行 `git cz` 后会出现 `1` 个`交互式界面`，根据`界面提示`操作即可。
 
+
+# 提交指南
+
+## 查看变更
+
+提交前一定要通过 `git status` 仔细查看`工作区`修改了什么。
+
+## 将`工作区变更`添加到`暂存区`
+
+仔细查看过`变更`以后，通过 `git add <file>` 将本次需要添加的`变更`添加到`暂存区`。
+
+## 将`暂存区变更`提交到`本地库`
+
+用 `git cz`! 
+
+用 `git cz`! 
+
+用 `git cz`!
+
+重要的事情说`3`遍，用 `git cz` 会出现一个`交互式界面`，按提示操作可以提交符合规范的 `commit message`。
+
+完成后变更就提交到`本地库`了，那么符合规范的 `commit message` 也在其中。
+
+## 将`本地库的提交记录`推送到`远程库`
+
+通过 `git push` 把`本地库`得到的所有 `commit` 推送到 `github远程库` 上，实现`云端保存`。
 
 # Angular Commit Message 格式
 
