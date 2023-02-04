@@ -26,7 +26,7 @@ npm install -g commitizen
 
 #### 启动
 
-在项目根目录下执行下面的命令，使项目支持 `Angular` 的 `Commit message` 格式。
+通过下面的命令使项目支持 `Angular` 的 `Commit message` 格式。
 
 ```shell
 commitizen init cz-conventional-changelog --yarn --dev --exact
@@ -81,11 +81,19 @@ chore：构建过程或辅助工具的变动
 
 ## 示例
 
-### 文档变动
+### 变更文档
 
 ```txt
 docs(*): add api.md
 ```
 
 这次`commit` 的类型是`文档变动`，影响范围是`整个项目`，做的事情是添加了 `1` 份 `api.md` 文档。
+
+
+### 变更构建系统文件或脚本
+
+```txt
+build(yarn): 增加 yarn 配置文件
+```
+这次`commit` 的类型是`变更构建系统文件或脚本`，影响范围是`yarn`，做的事情是增加了 `yarn` 配置文件。
 
