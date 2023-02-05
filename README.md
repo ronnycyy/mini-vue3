@@ -85,12 +85,12 @@ fix：修补bug
 docs：文档变动（documentation）
 style： 格式（不影响代码运行的变动）
 refactor：重构（即不是新增功能，也不是修改bug的代码变动）
-test：测试文件的修改
+test：测试文件的修改，如 reactive.spec.ts 等
 build：对构建系统文件或脚本的更改，如 npm, yarn, gulp 等
 ci: 对 CI 配置文件或脚本的更改，如 Travis, Circle, BrowserStack, SauceLabs 等
 revert: 回退上一次 commit
 perf: 提升性能的代码更改 (performance)
-chore：构建过程或辅助工具的变动
+chore：构建过程或辅助工具的变动，如 babel, typescript 等
 ```
 
 ### scope
