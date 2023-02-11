@@ -2,21 +2,25 @@ let activeEffect: ReactiveEffect;
 
 class ReactiveEffect {
   private _fn: Function;
-  
+
   constructor(fn: Function) {
     this._fn = fn;
   }
 
+  // runner 函数
   public run(): void {
     if (!this._fn) return;
     activeEffect = this;
-    this._fn();
+    // 执行 runner 后，返回 fn 的返回值。
+    return this._fn();
   }
 }
 
 export function effect(fn: Function) {
   const _effect = new ReactiveEffect(fn);
   _effect.run();
+  // 执行 effect 会返回一个 runner 函数，执行 runner 时，再次执行 fn。
+  return _effect.run.bind(_effect);
 }
 
 const targetMap = new Map<Object, Map<string, Set<ReactiveEffect>>>();
