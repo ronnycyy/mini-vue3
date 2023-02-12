@@ -1,25 +1,33 @@
 let activeEffect: ReactiveEffect;
 
 class ReactiveEffect {
+
+  public scheduler: Function;
+
   private _fn: Function;
 
-  constructor(fn: Function) {
+  constructor(fn: Function, s: Function) {
     this._fn = fn;
+    this.scheduler = s;
   }
 
   // runner 函数
   public run(): void {
     if (!this._fn) return;
     activeEffect = this;
-    // 执行 runner 后，返回 fn 的返回值。
     return this._fn();
   }
 }
 
-export function effect(fn: Function) {
-  const _effect = new ReactiveEffect(fn);
+interface IOption {
+  scheduler: Function;
+}
+
+export function effect(fn: Function, options: IOption) {
+  const _effect = new ReactiveEffect(fn, options.scheduler);
+  // 首次执行 effect 就执行 fn
   _effect.run();
-  // 执行 effect 会返回一个 runner 函数，执行 runner 时，再次执行 fn。
+  // 返回 runner 函数
   return _effect.run.bind(_effect);
 }
 
@@ -49,6 +57,10 @@ export function trigger(target: Object, key: string) {
   if (!effectSet) return;
 
   for (const effect of effectSet) {
-    effect.run();
+    if (effect.scheduler) {
+      effect.scheduler();
+    } else {
+      effect.run();
+    }
   }
 }
