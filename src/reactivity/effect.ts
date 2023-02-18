@@ -31,6 +31,10 @@ export function effect(fn: Function, options: IOption) {
   return _effect.run.bind(_effect);
 }
 
+//       对象表:     响应式对象 -> 属性表
+//       属性表:     属性 -> 集合
+//        集合:     依赖函数结点集合
+// 依赖函数结点:     将依赖函数 fn 封装到一个结点对象中
 const targetMap = new Map<Object, Map<string, Set<ReactiveEffect>>>();
 
 export function track(target: Object, key: string) {
